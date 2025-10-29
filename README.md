@@ -6,7 +6,9 @@ Visitors enter a digital dance journey exploring chakras through movement and
 sound. The work asks: can we remember ourselves as light, rather than a
 reflection?
 
-### HTML Hyperlink story - Project in cooperation with [Kamalanetra](https://www.kamalanetrahung.com/) //Part of the Exhibition:
+### HTML Hyperlink story [Visit site](https://koproduktionslabor.github.io/this_is_the_end_of_the_internet/1start1.html)
+
+Project in cooperation with [Kamalanetra](https://www.kamalanetrahung.com/) //Part of the Exhibition:
 
 ## DANCING THROUGH GUILT AND FEAR
 An exhibition by Kamalanetra Hung
@@ -38,4 +40,4 @@ experience of the self. Through play, we remember that we are not limited by
 past trauma: we are spirit, we are resilient, we are free to move in new ways.
 
 
-[Visit site](https://koproduktionslabor.github.io/this_is_the_end_of_the_internet/1start1.html)
+
