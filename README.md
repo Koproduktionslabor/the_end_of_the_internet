@@ -1,2 +1,2 @@
-# the_end_of_the_internet
+# The end of the internet
 HTML Hyperlink story - Project in cooperation with [Kamalanetra](https://www.kamalanetrahung.com/)
