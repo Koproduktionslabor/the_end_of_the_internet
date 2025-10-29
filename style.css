@@ -1,0 +1,58 @@
+
+@font-face {
+  font-family: PressStart2P; /* set name */
+  src: url(Press_Start_2P/PressStart2P-Regular.ttf); /* url of the font */
+}
+
+body,html{
+background-color: black;
+color: aliceblue;
+font-family: PressStart2P; 
+line-height: 2.5;  
+}
+
+a{
+color: rgb(30, 120, 255); 
+text-decoration: none;   
+}
+
+a:hover{
+  color: rgb(55, 154, 254);   
+}
+
+.container{
+margin:0;
+width: 50rem;   
+display: flex;   
+flex-direction: column; 
+align-items: center;
+justify-content:center;
+position: absolute;
+top: 50%;
+left: 50%;
+margin-right: -50%;
+transform: translate(-50%, -50%)
+}
+
+.arrows{
+  display: flex;   
+  flex-direction: column;
+  line-height: normal;
+  color: gray;    
+}
+.arrows a{
+  color: rgb(199, 185, 138);
+}
+
+
+
+@media only screen and (max-width: 600px) {
+.container{
+  width:50%;
+  max-width: 600px  
+}
+body,html{
+  font-size: 0.8rem;
+  line-height: normal;  
+  }
+}

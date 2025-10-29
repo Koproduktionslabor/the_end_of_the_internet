@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/osc/dist/osc-browser.min.js"></script>
+    <link href='style.css' rel='stylesheet'>
+    <title>End of Internet</title>
+</head>
+<body>
+<div class="container" style="line-height:1.5;">
+    <div class="arrows">   
+        <a href="10boxBody1.html">↩️undo</a>    
+        <!--<a>↪️redo</a>-->
+    </div>    
+<h3>Oh, oh, oh... the body:
+carbon molecules
+amino acids
+electrons, protons and neutrons
+<br>
+<a href="#" id="makeVisible">1</a>
+</h3>
+<div id="body1" style="visibility: hidden;">
+<h3>you feel at home in your body, yet stay open to explore more of who you <a href="4boxAre.html">are</a>
+<br><br>
+<a href="#" id="makeVisible2">2</a><h3></h3>
+<div id="body2" style="visibility: hidden;"> 
+<h3>    
+ you worry about your body, but begin to see yourself with kindness — stepping out of the <a href="16boxLooping.html">loop</a> of old thoughts <br><br>
+<a href="#" id="makeVisible3">3</a>  
+</h3>
+</div> 
+<div id="body3" style="visibility: hidden;">
+ <h3>It doesn’t matter how you look
+    Dance and music are ways of existing in the face of violence</h3>   
+</div>
+</div>    
+
+
+
+
+    </div>
+
+</body>
+
+<script>
+    const e = document.getElementById('makeVisible');
+    const tex = document.getElementById('body1');
+    
+    e.addEventListener("click", function () {
+    tex.style.visibility  = "visible";
+    });
+
+    const f = document.getElementById('makeVisible2');
+    const tex2 = document.getElementById('body2');
+    
+    f.addEventListener("click", function () {
+    tex2.style.visibility  = "visible";
+    });
+
+    const g = document.getElementById('makeVisible3');
+    const tex3 = document.getElementById('body3');
+    
+    g.addEventListener("click", function () {
+    tex3.style.visibility  = "visible";
+    });
+    
+    </script>
+</html>
+
