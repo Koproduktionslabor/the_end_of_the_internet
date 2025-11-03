@@ -6,7 +6,7 @@
     <link href='style.css' rel='stylesheet'>
     <script src="https://cdn.jsdelivr.net/npm/osc/dist/osc-browser.min.js"></script>
 
-    <title>End of Internet</title>
+    <title>This is the End of the Internet</title>
 </head>
 <body>
     <div class="container">
@@ -74,7 +74,7 @@ that allow us to <a id="btn" href="2start2.html" class="story-link">affirm</a>
    const myButton = document.getElementById("btn")
        myButton.addEventListener("click", function (e) {
        console.log("Button clicked:", e.currentTarget.className);
-     sendOSC("/test", [25]);
+     sendOSC("/levelIntro", [1]); //el numero entre corchetes es el argumemto o valor que se envia a Touchdesigner
    });
    
    </script>
