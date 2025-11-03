@@ -1,14 +1,15 @@
 
 # This Is the End of the Internet
 
-Interactive Kinect / TouchDesigner installation with sound and HTML branch narrative (~10 min)
+Interactive TouchDesigner installation with sound, driven with HTML branch narrative (~10 min).
 Visitors enter a digital dance journey exploring chakras through movement and
 sound. The work asks: can we remember ourselves as light, rather than a
 reflection?
 
 ### HTML Hyperlink story [Visit site](https://koproduktionslabor.github.io/this_is_the_end_of_the_internet/1start1.html)
 
-Project in cooperation with [Kamalanetra](https://www.kamalanetrahung.com/) //Part of the Exhibition:
+Project by [Kamalanetra](https://www.kamalanetrahung.com/) in colaboration with Koproduktionslabor 
+//Part of the Exhibition:
 
 ## DANCING THROUGH GUILT AND FEAR
 An exhibition by Kamalanetra Hung
