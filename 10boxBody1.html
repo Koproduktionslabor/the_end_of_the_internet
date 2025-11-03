@@ -11,7 +11,7 @@
 <body>
 <div class="container" style="line-height:1.5;">
     <div class="arrows">   
-        <a href="10boxBody1.html">↩️undo</a>    
+        <a href="4boxAre.html">↩️undo</a>    
         <!--<a>↪️redo</a>-->
     </div>    
 <h3>Oh, oh, oh... the body:
@@ -19,21 +19,22 @@ carbon molecules
 amino acids
 electrons, protons and neutrons
 <br>
+<br>
 <a href="#" id="makeVisible">1</a>
 </h3>
 <div id="body1" style="visibility: hidden;">
-<h3>you feel at home in your body, yet stay open to explore more of who you <a href="4boxAre.html">are</a>
+<h3>you feel at home in your body, yet stay open to explore more of who you <a href="4boxAre.html" id="V1">are</a>
 <br><br>
 <a href="#" id="makeVisible2">2</a><h3></h3>
 <div id="body2" style="visibility: hidden;"> 
 <h3>    
- you worry about your body, but begin to see yourself with kindness — stepping out of the <a href="16boxLooping.html">loop</a> of old thoughts <br><br>
+ you worry about your body, but begin to see yourself with kindness — stepping out of the <a href="16boxLooping.html" id="V2">loop</a> of old thoughts <br><br>
 <a href="#" id="makeVisible3">3</a>  
 </h3>
 </div> 
 <div id="body3" style="visibility: hidden;">
- <h3>It doesn’t matter how you look
-    Dance and music are ways of existing in the face of violence</h3>   
+ <h3>It doesn’t matter how you look. Everyone have their own Mandala of the body.
+</h3>   
 </div>
 </div>    
 
@@ -66,6 +67,97 @@ electrons, protons and neutrons
     tex3.style.visibility  = "visible";
     });
     
+
+    //codigo para enviar osc
+let oscPort;
+   
+oscPort = new osc.WebSocketPort({
+  url: "ws://localhost:9000", // same as your Node.js server
+  metadata: true
+});
+oscPort.open();
+
+oscPort.on("ready", () => {
+  console.log("Connected to OSC WebSocket!");
+});
+
+oscPort.on("open", () => {
+  console.log("✅ WebSocket connected to Node.js server");
+});
+
+if (oscPort && oscPort.readyState === WebSocket.OPEN) {
+  oscPort.send({
+    address: "/address",
+    args: [
+      {
+        type: "f", // float
+        value: 123.4
+      },
+      {
+        type: "s", // string
+        value: "hello"
+      }
+    ]
+  });
+}
+
+
+function sendOSC(address, values) {
+
+const args = values.map((v) => {
+if (typeof v === "number") {
+  return { type: "f", value: v }; // float
+} else if (typeof v === "string") {
+  return { type: "s", value: v }; // string
+} else {
+  return { type: "s", value: String(v) };
+}
+});
+
+oscPort.send({ address, args });
+console.log("✅ Sent OSC:", address, args);
+console.log("Sent OSC:", address, values);
+}
+
+//asignar un nombre con una variable para cada id
+const myButton = document.getElementById("makeVisible")
+
+myButton.addEventListener("click", function (e) {
+  console.log("Button clicked:", e.currentTarget.className);
+sendOSC("/levelbody", [1]);
+});
+
+const myButton2 = document.getElementById("makeVisible2")
+
+myButton2.addEventListener("click", function (e) {
+  console.log("Button clicked:", e.currentTarget.className);
+sendOSC("/levelbody", [2]);
+});
+
+const myButton3 = document.getElementById("makeVisible3")
+
+myButton3.addEventListener("click", function (e) {
+  console.log("Button clicked:", e.currentTarget.className);
+sendOSC("/levelbody", [3]);
+});
+
+//asignar un nombre con una variable para cada id
+const myButton4 = document.getElementById("V1")
+
+myButton4.addEventListener("click", function (e) {
+  console.log("Button clicked:", e.currentTarget.className);
+sendOSC("/levelbody", [4]);
+});
+
+//asignar un nombre con una variable para cada id
+const myButton5 = document.getElementById("V2")
+
+myButton5.addEventListener("click", function (e) {
+  console.log("Button clicked:", e.currentTarget.className);
+sendOSC("/levelbody", [5]);
+});
+
+
     </script>
 </html>
 

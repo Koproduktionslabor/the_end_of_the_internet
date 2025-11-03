@@ -10,16 +10,80 @@
 <body>
     <div class="container">
         <div class="arrows">   
-            <a href="15boxDance.html">↩️undo</a>  
+            <a href="15boxDance.html">↩️back</a>  
         </div>   
     <h3>
-        Heart
+        HEART
         <br>
-        Love connection, compassion
-        Heart Expansion Flow. Arms open and close, embrace self, sway side to side, heart-led movements. Eye contact (if safe), mirror work.
-        ✅ <a href="25boxOutroRestart.html">Reclaims</a> self-honoring and emotional sovereignty.
+        Love, Connection, Self Compassion, Expansion, Flow.<br><br> Move:<br>
+        -Arms open and close, embrace self, sway side to side <br>-Heart-level movements. <br>-Eye contact (if safe), mirror work.<br>
+        <br>✅ <a href="25boxOutroRestart.html" id="outro">Reclaims</a> self-honoring and emotional sovereignty.
     </h3>
     </div>
 
 </body>
+
+
+<script>
+
+        //codigo para enviar osc
+let oscPort;
+   
+oscPort = new osc.WebSocketPort({
+  url: "ws://localhost:9000", // same as your Node.js server
+  metadata: true
+});
+oscPort.open();
+
+oscPort.on("ready", () => {
+  console.log("Connected to OSC WebSocket!");
+});
+
+oscPort.on("open", () => {
+  console.log("✅ WebSocket connected to Node.js server");
+});
+
+if (oscPort && oscPort.readyState === WebSocket.OPEN) {
+  oscPort.send({
+    address: "/address",
+    args: [
+      {
+        type: "f", // float
+        value: 123.4
+      },
+      {
+        type: "s", // string
+        value: "hello"
+      }
+    ]
+  });
+}
+
+
+function sendOSC(address, values) {
+
+const args = values.map((v) => {
+if (typeof v === "number") {
+  return { type: "f", value: v }; // float
+} else if (typeof v === "string") {
+  return { type: "s", value: v }; // string
+} else {
+  return { type: "s", value: String(v) };
+}
+});
+
+oscPort.send({ address, args });
+console.log("✅ Sent OSC:", address, args);
+console.log("Sent OSC:", address, values);
+}
+
+//asignar un nombre con una variable para cada id
+const myButton = document.getElementById("outro")
+
+myButton.addEventListener("click", function (e) {
+  console.log("Button clicked:", e.currentTarget.className);
+sendOSC("/levelOut", [1]);
+});
+
+</script>
 </html>

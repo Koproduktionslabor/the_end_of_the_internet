@@ -10,12 +10,14 @@
 <body>
     <div class="container" style="line-height:1.5;">
         <div class="arrows">   
-            <a href="5boxWatching.html" id="hideText">↩️undo</a>    
+            <a href="4boxAre.html" id="hideText">↩️undo</a>    
         </div>  
 <h3>
-you are not a machine
-you are the original intelligence
+  <br>
+you are not a machine,<br>
+you are the original intelligence,<br>
 with practice you can excel the power of the mind<br>
+<br>
 <a href="#" id="makeVisible">1</a>
     </h3>
     <div id="boxPC2" style="visibility: hidden;">
@@ -23,11 +25,12 @@ with practice you can excel the power of the mind<br>
         </h3>
         <a href="#" id="makeVisible2">2</a>
         <div id="boxPC3" style="visibility: hidden;">
-          <h3>with awareness and practice, your mind can flow beyond its own <a href="16boxLooping.html">loops</a>
+          <h3>with awareness and practice, your mind can flow beyond its own <a href="16boxLooping.html" id="pc1">loops</a>
+            <br>
             <br>
             <a href="#" id="makeVisible3">3</a></h3>
             <div id="boxPC4" style="visibility: hidden;">
-              <h3>you are methodic, yet stay open to explore more of who you <a href="4boxAre.html">are</a>
+              <h3>you are methodic, yet stay open to explore more of who you <a href="4boxAre.html" id="pc2">are</a>
                 <br>
                 <br>
                 Remember, nerds can dance !</h3>
@@ -60,6 +63,93 @@ with practice you can excel the power of the mind<br>
     g.addEventListener("click", function () {
     tex3.style.visibility  = "visible";
     });
+
+        //codigo para enviar osc
+let oscPort;
+   
+oscPort = new osc.WebSocketPort({
+  url: "ws://localhost:9000", // same as your Node.js server
+  metadata: true
+});
+oscPort.open();
+
+oscPort.on("ready", () => {
+  console.log("Connected to OSC WebSocket!");
+});
+
+oscPort.on("open", () => {
+  console.log("✅ WebSocket connected to Node.js server");
+});
+
+if (oscPort && oscPort.readyState === WebSocket.OPEN) {
+  oscPort.send({
+    address: "/address",
+    args: [
+      {
+        type: "f", // float
+        value: 123.4
+      },
+      {
+        type: "s", // string
+        value: "hello"
+      }
+    ]
+  });
+}
+
+
+function sendOSC(address, values) {
+
+const args = values.map((v) => {
+if (typeof v === "number") {
+  return { type: "f", value: v }; // float
+} else if (typeof v === "string") {
+  return { type: "s", value: v }; // string
+} else {
+  return { type: "s", value: String(v) };
+}
+});
+
+oscPort.send({ address, args });
+console.log("✅ Sent OSC:", address, args);
+console.log("Sent OSC:", address, values);
+}
+
+//asignar un nombre con una variable para cada id
+const myButton = document.getElementById("makeVisible")
+
+myButton.addEventListener("click", function (e) {
+  console.log("Button clicked:", e.currentTarget.className);
+sendOSC("/levelpc", [1]);
+});
+
+const myButton2 = document.getElementById("makeVisible2")
+
+myButton2.addEventListener("click", function (e) {
+  console.log("Button clicked:", e.currentTarget.className);
+sendOSC("/levelpc", [2]);
+});
+
+const myButton3 = document.getElementById("makeVisible3")
+
+myButton3.addEventListener("click", function (e) {
+  console.log("Button clicked:", e.currentTarget.className);
+sendOSC("/levelpc", [3]);
+});
+
+const myButton4 = document.getElementById("pc1")
+
+myButton4.addEventListener("click", function (e) {
+  console.log("Button clicked:", e.currentTarget.className);
+sendOSC("/levelpc", [4]);
+});
+
+const myButton5 = document.getElementById("pc2")
+
+myButton5.addEventListener("click", function (e) {
+  console.log("Button clicked:", e.currentTarget.className);
+sendOSC("/levelpc", [5]);
+});
 
     </script>
 </html>
