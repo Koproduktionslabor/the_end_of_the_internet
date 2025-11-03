@@ -2,7 +2,7 @@
 # This Is the End of the Internet
 
 Interactive TouchDesigner installation with sound, driven with HTML branch narrative (~10 min).
-Visitors enter a digital dance journey exploring chakras through movement and
+Visitors enter a digital dance journey exploring chakras through movement, images, text and
 sound. The work asks: can we remember ourselves as light, rather than a
 reflection?
 
