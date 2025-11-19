@@ -28,5 +28,34 @@ to <a href="#" id="makeVisible">show</a>
 
 
 </body>
+<script>
+    let clickCount = 0;
+    const e = document.getElementById('makeVisible');
+    const tex = document.getElementById('boxFeel2');
 
+const hide = document.getElementById('hideText')
+    
+    e.addEventListener("click", function () {
+    tex.style.visibility  = "visible";
+    });
+
+    hide.addEventListener("click", function () {
+   
+    clickCount++;
+    
+    if (clickCount === 1) {
+        // First click - hide the text
+    tex.style.visibility = "hidden";
+    } else if (clickCount === 2) {
+        // Second click - redirect to 2start.html
+    window.location.href = "2start2.html";
+    }
+    });
+
+    const f = document.getElementById('makeVisible2')
+    
+
+
+
+    </script>
 </html>
