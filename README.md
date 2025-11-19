@@ -4,7 +4,7 @@
 Interactive TouchDesigner installation with sound, driven with HTML branch narrative (~10 min).
 Visitors enter a digital dance journey exploring chakras through movement, images, text and
 sound. The work asks: can we remember ourselves as light, rather than a
-reflection?
+reflection of mind and body?
 
 ### HTML Hyperlink story [Visit site](https://koproduktionslabor.github.io/this_is_the_end_of_the_internet/1start1.html)
 
