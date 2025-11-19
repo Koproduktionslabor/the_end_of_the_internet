@@ -1,33 +1,26 @@
-<!DOCTYPE html>
+<h3><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/osc/dist/osc-browser.min.js"></script>
     <link href='style.css' rel='stylesheet'>
-    <title>End of Internet</title>
+    <title>This is the End of the Internet</title>
 </head>
 <body>
     <div class="container">
        
-    <h3><!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link href='style.css' rel='stylesheet'>
-            <title>End of Internet</title>
         </head>
         <body>
             <div class="container">
                 <div class="arrows">   
-                    <a href="16boxLooping.html">↩️ back</a>    
+                    <a href="16boxLooping.html" id="menuLoop">↩️ back</a>    
                 </div> 
             <h3>FREEZE
-                <br>
-                -Immobilization, dissociation, numbness <br>-Repeating due to mental fog <br>-Powerlessness, stuck identity 
-                <br>-Closed heart, inability to receive love <br> 
-                <br>you have the power to change the story.
+                <br><br>
+                -Immobilization, dissociation, numbness <br><br>-Repeating due to mental fog<br><br>-Powerlessness, stuck identity 
+                <br><br>-Closed heart, inability to receive love <br> 
+                <br>you have the power to change the story.<br><br>
                 This dance can help you out,
                 <a href="15boxDance.html" id="freeze1">find balance.</a> No Mud, No Lotus Flower. 
             </h3>
@@ -35,67 +28,5 @@
         
 
 </body>
-<script>
 
-        //codigo para enviar osc
-let oscPort;
-   
-oscPort = new osc.WebSocketPort({
-  url: "ws://localhost:9000", // same as your Node.js server
-  metadata: true
-});
-oscPort.open();
-
-oscPort.on("ready", () => {
-  console.log("Connected to OSC WebSocket!");
-});
-
-oscPort.on("open", () => {
-  console.log("✅ WebSocket connected to Node.js server");
-});
-
-if (oscPort && oscPort.readyState === WebSocket.OPEN) {
-  oscPort.send({
-    address: "/address",
-    args: [
-      {
-        type: "f", // float
-        value: 123.4
-      },
-      {
-        type: "s", // string
-        value: "hello"
-      }
-    ]
-  });
-}
-
-
-function sendOSC(address, values) {
-
-const args = values.map((v) => {
-if (typeof v === "number") {
-  return { type: "f", value: v }; // float
-} else if (typeof v === "string") {
-  return { type: "s", value: v }; // string
-} else {
-  return { type: "s", value: String(v) };
-}
-});
-
-oscPort.send({ address, args });
-console.log("✅ Sent OSC:", address, args);
-console.log("Sent OSC:", address, values);
-}
-
-//asignar un nombre con una variable para cada id
-const myButton1 = document.getElementById("freeze1")
-
-myButton1.addEventListener("click", function (e) {
-  console.log("Button clicked:", e.currentTarget.className);
-sendOSC("/levelFreeze", [1]);
-});
-
-
-</script>
 </html>

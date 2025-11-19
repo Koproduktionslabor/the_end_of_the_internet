@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<h3><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/osc/dist/osc-browser.min.js"></script>
     <link href='style.css' rel='stylesheet'>
-    <title>End of Internet</title>
+    <title>This is the End of the Internet</title>
 </head>
 <body>
     <div class="container">
-    <h3> This is the End of the Internet <br> 
+    <h3>
       Congratulations !!! <br>
-      you have scrolled all the Pages,<br>
-      you are LED LIGHT :-)<br> <br>
+      you have scrolled all the Pages,<br><br>
+      You are LED LIGHT<br> <br>
       
-      Step by step, you are closer to <br> Formless Divinity
-      <br>may all beings in all the worlds<br>be happy and free.<br>
+      step by step, you are closer to <br> Formless Divinity,
+      <br><br>may all beings in all the worlds<br>be happy and free.<br>
       
         <br>
         <a href="1start1.html" id="outro2">Reset</a>
@@ -24,68 +24,5 @@
 
 </body>
 
-
-<script>
-
-        //codigo para enviar osc
-let oscPort;
-   
-oscPort = new osc.WebSocketPort({
-  url: "ws://localhost:9000", // same as your Node.js server
-  metadata: true
-});
-oscPort.open();
-
-oscPort.on("ready", () => {
-  console.log("Connected to OSC WebSocket!");
-});
-
-oscPort.on("open", () => {
-  console.log("✅ WebSocket connected to Node.js server");
-});
-
-if (oscPort && oscPort.readyState === WebSocket.OPEN) {
-  oscPort.send({
-    address: "/address",
-    args: [
-      {
-        type: "f", // float
-        value: 123.4
-      },
-      {
-        type: "s", // string
-        value: "hello"
-      }
-    ]
-  });
-}
-
-
-function sendOSC(address, values) {
-
-const args = values.map((v) => {
-if (typeof v === "number") {
-  return { type: "f", value: v }; // float
-} else if (typeof v === "string") {
-  return { type: "s", value: v }; // string
-} else {
-  return { type: "s", value: String(v) };
-}
-});
-
-oscPort.send({ address, args });
-console.log("✅ Sent OSC:", address, args);
-console.log("Sent OSC:", address, values);
-}
-
-//asignar un nombre con una variable para cada id
-const myButton = document.getElementById("outro2")
-
-myButton.addEventListener("click", function (e) {
-  console.log("Button clicked:", e.currentTarget.className);
-sendOSC("/levelOut", [2]);
-});
-
-</script>
 
 </html>

@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/osc/dist/osc-browser.min.js"></script>
     <link href='style.css' rel='stylesheet'>
-    <title>End of Internet</title>
+    <title>This is the End of the Internet</title>
 </head>
 <body>
     <div class="container" style="line-height:1.5;">
         <div class="arrows">   
-            <a href="4boxAre.html" id="hideText">↩️undo</a>    
+            <a href="4boxAre.html" id="menuAre">↩️undo</a>    
         </div>  
 <h3>
   <br>
@@ -42,114 +42,5 @@ with practice you can excel the power of the mind<br>
     </div>
 
 </body>
-<script>
-    const e = document.getElementById('makeVisible');
-    const tex = document.getElementById('boxPC2');
-    
-    e.addEventListener("click", function () {
-    tex.style.visibility  = "visible";
-    });
-    
-    const f = document.getElementById('makeVisible2');
-    const tex2 = document.getElementById('boxPC3');
 
-    f.addEventListener("click", function () {
-    tex2.style.visibility  = "visible";
-    });
-
-    const g = document.getElementById('makeVisible3');
-    const tex3 = document.getElementById('boxPC4');
-
-    g.addEventListener("click", function () {
-    tex3.style.visibility  = "visible";
-    });
-
-        //codigo para enviar osc
-let oscPort;
-   
-oscPort = new osc.WebSocketPort({
-  url: "ws://localhost:9000", // same as your Node.js server
-  metadata: true
-});
-oscPort.open();
-
-oscPort.on("ready", () => {
-  console.log("Connected to OSC WebSocket!");
-});
-
-oscPort.on("open", () => {
-  console.log("✅ WebSocket connected to Node.js server");
-});
-
-if (oscPort && oscPort.readyState === WebSocket.OPEN) {
-  oscPort.send({
-    address: "/address",
-    args: [
-      {
-        type: "f", // float
-        value: 123.4
-      },
-      {
-        type: "s", // string
-        value: "hello"
-      }
-    ]
-  });
-}
-
-
-function sendOSC(address, values) {
-
-const args = values.map((v) => {
-if (typeof v === "number") {
-  return { type: "f", value: v }; // float
-} else if (typeof v === "string") {
-  return { type: "s", value: v }; // string
-} else {
-  return { type: "s", value: String(v) };
-}
-});
-
-oscPort.send({ address, args });
-console.log("✅ Sent OSC:", address, args);
-console.log("Sent OSC:", address, values);
-}
-
-//asignar un nombre con una variable para cada id
-const myButton = document.getElementById("makeVisible")
-
-myButton.addEventListener("click", function (e) {
-  console.log("Button clicked:", e.currentTarget.className);
-sendOSC("/levelpc", [1]);
-});
-
-const myButton2 = document.getElementById("makeVisible2")
-
-myButton2.addEventListener("click", function (e) {
-  console.log("Button clicked:", e.currentTarget.className);
-sendOSC("/levelpc", [2]);
-});
-
-const myButton3 = document.getElementById("makeVisible3")
-
-myButton3.addEventListener("click", function (e) {
-  console.log("Button clicked:", e.currentTarget.className);
-sendOSC("/levelpc", [3]);
-});
-
-const myButton4 = document.getElementById("pc1")
-
-myButton4.addEventListener("click", function (e) {
-  console.log("Button clicked:", e.currentTarget.className);
-sendOSC("/levelpc", [4]);
-});
-
-const myButton5 = document.getElementById("pc2")
-
-myButton5.addEventListener("click", function (e) {
-  console.log("Button clicked:", e.currentTarget.className);
-sendOSC("/levelpc", [5]);
-});
-
-    </script>
 </html>

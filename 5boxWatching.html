@@ -5,81 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/osc/dist/osc-browser.min.js"></script>
     <link href='style.css' rel='stylesheet'>
-    <title>End of Internet</title>
+    <title>This is the End of the Internet</title>
 </head>
 <body>
 <div class="container">
     <div class="arrows">   
-        <a href="4boxAre.html" id="hideText">↩️undo</a>    
+        <a href="4boxAre.html" id="menuAre">↩️undo</a>    
         </div>   
-<h3>we all need to be more comfortable <br>
+<h3>we all need to be more comfortable <br><br>
 and letting go
-and looking silly, <br><a href="4boxAre.html" id="watch1"> risking</a> more
-and <br>being more willing to fail <br>
+and looking silly, <br><br><a href="4boxAre.html" id="watch1"> risking</a> more
+and <br><br>being more willing to fail <br><br>
 specially when the only thing at risk is our ego. 
     </h3>
     </div>
 
 </body>
-<script>
-    //codigo para enviar osc
-let oscPort;
-   
-oscPort = new osc.WebSocketPort({
-  url: "ws://localhost:9000", // same as your Node.js server
-  metadata: true
-});
-oscPort.open();
 
-oscPort.on("ready", () => {
-  console.log("Connected to OSC WebSocket!");
-});
-
-oscPort.on("open", () => {
-  console.log("✅ WebSocket connected to Node.js server");
-});
-
-if (oscPort && oscPort.readyState === WebSocket.OPEN) {
-  oscPort.send({
-    address: "/address",
-    args: [
-      {
-        type: "f", // float
-        value: 123.4
-      },
-      {
-        type: "s", // string
-        value: "hello"
-      }
-    ]
-  });
-}
-
-
-function sendOSC(address, values) {
-
-const args = values.map((v) => {
-if (typeof v === "number") {
-  return { type: "f", value: v }; // float
-} else if (typeof v === "string") {
-  return { type: "s", value: v }; // string
-} else {
-  return { type: "s", value: String(v) };
-}
-});
-
-oscPort.send({ address, args });
-console.log("✅ Sent OSC:", address, args);
-console.log("Sent OSC:", address, values);
-}
-
-//asignar un nombre con una variable para cada id
-const myButton = document.getElementById("watch1")
-
-myButton.addEventListener("click", function (e) {
-  console.log("Button clicked:", e.currentTarget.className);
-sendOSC("/levelIntro", [5]);
-});
-
-</script>
 </html>
