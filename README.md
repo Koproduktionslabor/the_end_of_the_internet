@@ -9,6 +9,7 @@ reflection of mind and body?
 ### HTML Hyperlink story [Visit site](https://koproduktionslabor.github.io/this_is_the_end_of_the_internet/1start1.html)
 
 A project by [Kamalanetra](https://www.kamalanetrahung.com/) developed with mentoring support from Flor Alonso, Koproduktionslabor. 
+
 //Part of the Exhibition:
 
 ## DANCING THROUGH GUILT AND FEAR
