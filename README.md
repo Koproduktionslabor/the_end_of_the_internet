@@ -1,7 +1,7 @@
 
 # This Is the End of the Internet, 2025
 
-Interactive TouchDesigner installation with sound, driven with HTML branch narrative (~10 min).
+Interactive TouchDesigner installation with sound, driven with HTML branch narrative (~10-15 min).
 Visitors enter a digital dance journey exploring chakras through movement, images, text and
 sound. The work asks: can we remember ourselves as light, rather than a
 reflection of mind and body?
