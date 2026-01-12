@@ -14,7 +14,7 @@ A project by [Kamalanetra](https://www.kamalanetrahung.com/) with creative codin
 
 ## DANCING THROUGH GUILT AND FEAR
 An exhibition by Kamalanetra Hung
-at CO3 offspace, Cologne, 2025
+at [CO3 offspace](https://co3art.com), Cologne, 2025
 
 Memory is not just something we store; it is something we perform, invent, and
 transform. This exhibition invites you to explore how personal and collective
