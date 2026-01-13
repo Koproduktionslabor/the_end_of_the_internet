@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='style.css' rel='stylesheet'>
-    <script src="https://cdn.jsdelivr.net/npm/osc/dist/osc-browser.min.js"></script>
+     
 
-    <title>End of Internet</title>
+    <title>This is the End of the Internet</title>
 </head>
 <body>
     <div class="container">
@@ -19,64 +19,6 @@ that allow us to <a id="btn" href="2start2.html" class="story-link">affirm</a>
 
 </body>
 
-<script>
-    let oscPort;
-   
-     oscPort = new osc.WebSocketPort({
-       url: "ws://localhost:9000", // same as your Node.js server
-       metadata: true
-     });
-     oscPort.open();
-   
-     oscPort.on("ready", () => {
-       console.log("Connected to OSC WebSocket!");
-     });
-   
-     oscPort.on("open", () => {
-       console.log("✅ WebSocket connected to Node.js server");
-     });
-     
-     if (oscPort && oscPort.readyState === WebSocket.OPEN) {
-       oscPort.send({
-         address: "/address",
-         args: [
-           {
-             type: "f", // float
-             value: 123.4
-           },
-           {
-             type: "s", // string
-             value: "hello"
-           }
-         ]
-       });
-   }
-   
-    
-   
-   function sendOSC(address, values) {
-   
-   const args = values.map((v) => {
-     if (typeof v === "number") {
-       return { type: "f", value: v }; // float
-     } else if (typeof v === "string") {
-       return { type: "s", value: v }; // string
-     } else {
-       return { type: "s", value: String(v) };
-     }
-   });
-   
-   oscPort.send({ address, args });
-   console.log("✅ Sent OSC:", address, args);
-   console.log("Sent OSC:", address, values);
-   }
-   
-   const myButton = document.getElementById("btn")
-       myButton.addEventListener("click", function (e) {
-       console.log("Button clicked:", e.currentTarget.className);
-     sendOSC("/test", [25]);
-   });
-   
-   </script>
+
    
 </html>
