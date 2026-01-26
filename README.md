@@ -41,5 +41,6 @@ memory”—spaces where movement, imagination, and participation reshape our
 experience of the self. Through play, we remember that we are not limited by
 past trauma: we are spirit, we are resilient, we are free to move in new ways.
 
+Funded by KulturAmt Köln
 
 
