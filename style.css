@@ -13,7 +13,7 @@ body {
 }
 
 h3 {
-    font-size: clamp(16px, 4vw, 28px);
+    font-size: clamp(16px, 4vw, 20px);
     line-height: 1.5;
     word-wrap: break-word;
 }
@@ -50,7 +50,8 @@ position: absolute;
 top: 50%;
 left: 50%;
 margin-right: -50%;
-transform: translate(-50%, -50%)
+transform: translate(-50%, -50%);
+
 }
 
 .arrows{
@@ -67,11 +68,12 @@ transform: translate(-50%, -50%)
 
 @media only screen and (max-width: 600px) {
 .container{
+  margin-top: 50%;
   width:50%;
   max-width: 600px  
 }
 body,html{
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   line-height: normal;  
   }
 
